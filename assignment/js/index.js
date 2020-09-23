@@ -44,6 +44,7 @@ let siteContent = {
 
 // write your code here
 //header Element
+const contBefor = document.querySelector(".container").cloneNode(true);
 const navel = document.querySelector(".container").firstElementChild.firstElementChild;//to get nav element
 const links = navel.getElementsByTagName('a');//to get Html collection for a tag
 links[0].textContent=siteContent.nav["nav-item-1"];//assign link 
@@ -96,10 +97,34 @@ paras[2].textContent = siteContent.contact.email;
 //footer
 document.querySelector("footer").querySelector('p').textContent = siteContent.footer.copyright;
 
+//navel is parent 
+
+//document.create
+//Home 
+const home = document.createElement('a');
+home.textContent = "Home";
+navel.insertBefore(home,navel.firstElementChild);
+//Page
+const page = document.createElement('a');
+page.textContent = "Page";
+navel.appendChild(page);
+//change color
+
+document.querySelectorAll("body > div > header > nav > a").forEach((element)=>element.style.color = "#080");
+//create new items 
+
+
+
+
+
+
+
 //console.log(document.querySelector('script'));
 buttonel.addEventListener('click',reset);
 function reset(){
-  document.body.textContent = " ";
+	document.body.textContent = " ";
+  document.body.appendChild(contBefor);
+	
  
   
   
